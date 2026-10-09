@@ -1,0 +1,38 @@
+{
+    "project": "DySTCA_Kaggle_Experiments",
+    "version": "1.1.0",
+    "description": "Reproducibility package for Dynamic Spatio-Temporal Cross-Attention",
+    "experiments": {
+        "baseline_delhi": {
+            "status": "COMPLETED",
+            "seed": 42,
+            "horizon": 24,
+            "lookback": 168
+        },
+        "multiseed_robustness": {
+            "status": "COMPLETED",
+            "seeds": [42, 123, 2024, 3407, 9999]
+        },
+        "ablation_suite": {
+            "status": "COMPLETED",
+            "variants": [
+                "full",
+                "wo_tcn",
+                "wo_gat",
+                "wo_dynamic_graph",
+                "wo_cross_attention"
+            ]
+        },
+        "autoregressive_delhi": {
+            "status": "COMPLETED",
+            "notes": "Reduced batch size to 4 for memory constraints"
+        },
+        "greece_spatial_evaluation": {
+            "status": "COMPLETED",
+            "notes": "Native 3-hour interval, 1 forecast step"
+        },
+        "computational_benchmark": {
+            "status": "COMPLETED"
+        }
+    }
+}

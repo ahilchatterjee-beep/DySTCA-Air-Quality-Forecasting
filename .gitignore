@@ -1,0 +1,31 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments and local secrets
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Datasets and large generated binaries (keep separate from ordinary Git history)
+*.csv
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.ckpt
+*.npz
+*.npy
+
+# Local outputs and OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

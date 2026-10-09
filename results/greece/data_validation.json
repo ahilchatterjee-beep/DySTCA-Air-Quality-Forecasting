@@ -1,0 +1,10 @@
+{
+    "dataset": "greek_urban_air_quality_2020_2024.csv",
+    "rows": 453096,
+    "stations": 31,
+    "timestamp_start": "2020-01-01",
+    "timestamp_end": "2024-12-31",
+    "native_interval_hours": 3,
+    "lookback_steps": 24,
+    "forecast_steps": 8
+}

@@ -1,0 +1,1059 @@
+================================================================================
+DySTCA REPRODUCIBILITY BASELINE EXPERIMENT
+Target: baseline_delhi_reproduced_2026-09-30
+Timestamp: 2026-10-05 07:41:16 UTC
+================================================================================
+Saved environment manifest to environment_manifest.json
+Configuration validation: PASS
+
+Executing Preprocessing Pipeline...
+
+======================================================================
+PREPARING MODEL DATA
+======================================================================
+
+======================================================================
+LOADING NEW DELHI DATASET
+======================================================================
+Dataset shape: (52560, 16)
+
+Columns:
+  - date_ist
+  - time_ist
+  - location
+  - lat
+  - lon
+  - temp_c
+  - humidity
+  - pressure_mb
+  - windspeed_kph
+  - condition_text
+  - description
+  - aqi_index
+  - pm2_5
+  - pm10
+  - co
+  - no2
+
+Required-column check: PASS
+Numeric-value validation: PASS
+
+======================================================================
+DATASET INSPECTION
+======================================================================
+Rows: 52560
+Number of stations: 6
+
+Stations:
+  0:  Anand Vihar    
+  1:  Connaught Place
+  2:  Dwarka         
+  3:  IGI Airport    
+  4:  Okhla Phase III
+  5:  Rohini         
+
+Rows per station:
+location
+Anand Vihar        8760
+Connaught Place    8760
+Dwarka             8760
+IGI Airport        8760
+Okhla Phase III    8760
+Rohini             8760
+dtype: int64
+
+Missing values:
+Series([], dtype: int64)
+
+Station-coordinate consistency: PASS
+Duplicate station/timestamp rows: 0
+
+Wind information check: PASS
+Using wind speed: windspeed_kph
+Wind direction: not available
+Graph formulation: Sij = Vi * exp(-k * dij)
+
+======================================================================
+STATION MAPPING
+======================================================================
+00 |  Anand Vihar     | lat=28.646900 | lon=77.316000
+01 |  Connaught Place | lat=28.630400 | lon=77.217700
+02 |  Dwarka          | lat=28.588200 | lon=77.049400
+03 |  IGI Airport     | lat=28.556200 | lon=77.100000
+04 |  Okhla Phase III | lat=28.527300 | lon=77.261800
+05 |  Rohini          | lat=28.704100 | lon=77.102500
+
+======================================================================
+VERIFYING HOURLY MULTI-STATION STRUCTURE
+======================================================================
+Unique timestamps: 8760
+Expected stations per hour: 6
+Incomplete timestamps: 0
+Hourly gaps: 0
+Hourly structure: PASS
+
+======================================================================
+CONSTRUCTING STATION ARRAYS
+======================================================================
+Raw X shape: (8760, 6, 14)
+Raw Y shape: (8760, 6, 1)
+
+======================================================================
+CREATING MULTI-HORIZON TEMPORAL SEQUENCES
+======================================================================
+X sequences: (8569, 168, 6, 14)
+Y sequences: (8569, 6, 24)
+Station-record sequences: 8569
+
+Multi-horizon target structure:
+  Input X : [samples, 168, 6, 14]
+  Target Y: [samples, 6, 24]
+  Forecast hours: 1 -> 24
+
+======================================================================
+CHRONOLOGICAL TRAIN / VAL / TEST SPLIT
+======================================================================
+Train samples: 5998
+Validation samples: 1094
+Test samples: 1095
+Purge gap (windows): 191
+Cross-split temporal overlap: PASS
+
+======================================================================
+FITTING SCALERS ON TRAINING DATA ONLY
+======================================================================
+Feature scaler: fitted
+Target scaler: fitted
+
+======================================================================
+FINAL PREPROCESSING VALIDATION
+======================================================================
+TRAIN: PASS | X=(5998, 168, 6, 14) | Y=(5998, 6, 24) | records=5998
+VALIDATION: PASS | X=(1094, 168, 6, 14) | Y=(1094, 6, 24) | records=1094
+TEST: PASS | X=(1095, 168, 6, 14) | Y=(1095, 6, 24) | records=1095
+
+======================================================================
+PREPROCESSING COMPLETE
+======================================================================
+Stations: 6
+Features: 14
+Feature columns: ['pm2_5', 'pm10', 'co', 'no2', 'temp_c', 'humidity', 'pressure_mb', 'windspeed_kph', 'hour_sin', 'hour_cos', 'day_sin', 'day_cos', 'month_sin', 'month_cos']
+Input sequence length: 168
+Prediction horizon: 24
+Target: pm2_5
+
+TRAIN:
+  X: torch.Size([5998, 168, 6, 14])
+  Y: torch.Size([5998, 6, 24])
+
+VALIDATION:
+  X: torch.Size([1094, 168, 6, 14])
+  Y: torch.Size([1094, 6, 24])
+
+TEST:
+  X: torch.Size([1095, 168, 6, 14])
+  Y: torch.Size([1095, 6, 24])
+
+FORECAST STRUCTURE:
+  Input: previous 24 hourly observations
+  Output: next 24 hourly PM2.5 values
+  12-hour evaluation: forecast hours 1-12
+  24-hour evaluation: forecast hours 1-24
+
+Feature scaler fitted on TRAIN only.
+Target scaler fitted on TRAIN only.
+Active Device: cpu
+Verified Model Trainable Parameters: 262,336
+Saved configuration manifest to config_manifest.json
+
+================================================================================
+STAGE 1: WARM-UP (5 EPOCHS)
+================================================================================
+================================================================================
+DySTCA REPRODUCIBILITY BASELINE EXPERIMENT
+Target: baseline_delhi_reproduced_2026-09-30
+Timestamp: 2026-10-05 07:42:35 UTC
+================================================================================
+Saved environment manifest to environment_manifest.json
+Configuration validation: PASS
+================================================================================
+DySTCA REPRODUCIBILITY BASELINE EXPERIMENT
+Target: baseline_delhi_reproduced_2026-09-30
+Timestamp: 2026-10-05 07:45:13 UTC
+================================================================================
+Saved environment manifest to environment_manifest.json
+Configuration validation: PASS
+
+Executing Preprocessing Pipeline...
+
+======================================================================
+PREPARING MODEL DATA
+======================================================================
+
+======================================================================
+LOADING NEW DELHI DATASET
+======================================================================
+Dataset shape: (52560, 16)
+
+Columns:
+  - date_ist
+  - time_ist
+  - location
+  - lat
+  - lon
+  - temp_c
+  - humidity
+  - pressure_mb
+  - windspeed_kph
+  - condition_text
+  - description
+  - aqi_index
+  - pm2_5
+  - pm10
+  - co
+  - no2
+
+Required-column check: PASS
+Numeric-value validation: PASS
+
+======================================================================
+DATASET INSPECTION
+======================================================================
+Rows: 52560
+Number of stations: 6
+
+Stations:
+  0:  Anand Vihar    
+  1:  Connaught Place
+  2:  Dwarka         
+  3:  IGI Airport    
+  4:  Okhla Phase III
+  5:  Rohini         
+
+Rows per station:
+location
+Anand Vihar        8760
+Connaught Place    8760
+Dwarka             8760
+IGI Airport        8760
+Okhla Phase III    8760
+Rohini             8760
+dtype: int64
+
+Missing values:
+Series([], dtype: int64)
+
+Station-coordinate consistency: PASS
+Duplicate station/timestamp rows: 0
+
+Wind information check: PASS
+Using wind speed: windspeed_kph
+Wind direction: not available
+Graph formulation: Sij = Vi * exp(-k * dij)
+
+======================================================================
+STATION MAPPING
+======================================================================
+00 |  Anand Vihar     | lat=28.646900 | lon=77.316000
+01 |  Connaught Place | lat=28.630400 | lon=77.217700
+02 |  Dwarka          | lat=28.588200 | lon=77.049400
+03 |  IGI Airport     | lat=28.556200 | lon=77.100000
+04 |  Okhla Phase III | lat=28.527300 | lon=77.261800
+05 |  Rohini          | lat=28.704100 | lon=77.102500
+
+======================================================================
+VERIFYING HOURLY MULTI-STATION STRUCTURE
+======================================================================
+Unique timestamps: 8760
+Expected stations per hour: 6
+Incomplete timestamps: 0
+Hourly gaps: 0
+Hourly structure: PASS
+
+======================================================================
+CONSTRUCTING STATION ARRAYS
+======================================================================
+Raw X shape: (8760, 6, 14)
+Raw Y shape: (8760, 6, 1)
+
+======================================================================
+CREATING MULTI-HORIZON TEMPORAL SEQUENCES
+======================================================================
+X sequences: (8569, 168, 6, 14)
+Y sequences: (8569, 6, 24)
+Station-record sequences: 8569
+
+Multi-horizon target structure:
+  Input X : [samples, 168, 6, 14]
+  Target Y: [samples, 6, 24]
+  Forecast hours: 1 -> 24
+
+======================================================================
+CHRONOLOGICAL TRAIN / VAL / TEST SPLIT
+======================================================================
+Train samples: 5998
+Validation samples: 1094
+Test samples: 1095
+Purge gap (windows): 191
+Cross-split temporal overlap: PASS
+
+======================================================================
+FITTING SCALERS ON TRAINING DATA ONLY
+======================================================================
+Feature scaler: fitted
+Target scaler: fitted
+
+======================================================================
+FINAL PREPROCESSING VALIDATION
+======================================================================
+TRAIN: PASS | X=(5998, 168, 6, 14) | Y=(5998, 6, 24) | records=5998
+VALIDATION: PASS | X=(1094, 168, 6, 14) | Y=(1094, 6, 24) | records=1094
+TEST: PASS | X=(1095, 168, 6, 14) | Y=(1095, 6, 24) | records=1095
+
+======================================================================
+PREPROCESSING COMPLETE
+======================================================================
+Stations: 6
+Features: 14
+Feature columns: ['pm2_5', 'pm10', 'co', 'no2', 'temp_c', 'humidity', 'pressure_mb', 'windspeed_kph', 'hour_sin', 'hour_cos', 'day_sin', 'day_cos', 'month_sin', 'month_cos']
+Input sequence length: 168
+Prediction horizon: 24
+Target: pm2_5
+
+TRAIN:
+  X: torch.Size([5998, 168, 6, 14])
+  Y: torch.Size([5998, 6, 24])
+
+VALIDATION:
+  X: torch.Size([1094, 168, 6, 14])
+  Y: torch.Size([1094, 6, 24])
+
+TEST:
+  X: torch.Size([1095, 168, 6, 14])
+  Y: torch.Size([1095, 6, 24])
+
+FORECAST STRUCTURE:
+  Input: previous 24 hourly observations
+  Output: next 24 hourly PM2.5 values
+  12-hour evaluation: forecast hours 1-12
+  24-hour evaluation: forecast hours 1-24
+
+Feature scaler fitted on TRAIN only.
+Target scaler fitted on TRAIN only.
+Active Device: cpu
+Verified Model Trainable Parameters: 262,336
+Saved configuration manifest to config_manifest.json
+
+================================================================================
+STAGE 1: WARM-UP (5 EPOCHS)
+================================================================================
+================================================================================
+DySTCA REPRODUCIBILITY BASELINE EXPERIMENT
+Target: baseline_delhi_reproduced_2026-09-30
+Timestamp: 2026-10-05 07:48:22 UTC
+================================================================================
+Saved environment manifest to environment_manifest.json
+================================================================================
+DySTCA REPRODUCIBILITY BASELINE EXPERIMENT
+Target: baseline_delhi_reproduced_2026-09-30
+Timestamp: 2026-10-05 07:50:43 UTC
+================================================================================
+Saved environment manifest to environment_manifest.json
+Configuration validation: PASS
+
+Executing Preprocessing Pipeline...
+
+======================================================================
+PREPARING MODEL DATA
+======================================================================
+
+======================================================================
+LOADING NEW DELHI DATASET
+======================================================================
+Dataset shape: (52560, 16)
+
+Columns:
+  - date_ist
+  - time_ist
+  - location
+  - lat
+  - lon
+  - temp_c
+  - humidity
+  - pressure_mb
+  - windspeed_kph
+  - condition_text
+  - description
+  - aqi_index
+  - pm2_5
+  - pm10
+  - co
+  - no2
+
+Required-column check: PASS
+Numeric-value validation: PASS
+
+======================================================================
+DATASET INSPECTION
+======================================================================
+Rows: 52560
+Number of stations: 6
+
+Stations:
+  0:  Anand Vihar    
+  1:  Connaught Place
+  2:  Dwarka         
+  3:  IGI Airport    
+  4:  Okhla Phase III
+  5:  Rohini         
+
+Rows per station:
+location
+Anand Vihar        8760
+Connaught Place    8760
+Dwarka             8760
+IGI Airport        8760
+Okhla Phase III    8760
+Rohini             8760
+dtype: int64
+
+Missing values:
+Series([], dtype: int64)
+
+Station-coordinate consistency: PASS
+Duplicate station/timestamp rows: 0
+
+Wind information check: PASS
+Using wind speed: windspeed_kph
+Wind direction: not available
+Graph formulation: Sij = Vi * exp(-k * dij)
+
+======================================================================
+STATION MAPPING
+======================================================================
+00 |  Anand Vihar     | lat=28.646900 | lon=77.316000
+01 |  Connaught Place | lat=28.630400 | lon=77.217700
+02 |  Dwarka          | lat=28.588200 | lon=77.049400
+03 |  IGI Airport     | lat=28.556200 | lon=77.100000
+04 |  Okhla Phase III | lat=28.527300 | lon=77.261800
+05 |  Rohini          | lat=28.704100 | lon=77.102500
+
+======================================================================
+VERIFYING HOURLY MULTI-STATION STRUCTURE
+======================================================================
+Unique timestamps: 8760
+Expected stations per hour: 6
+Incomplete timestamps: 0
+Hourly gaps: 0
+Hourly structure: PASS
+
+======================================================================
+CONSTRUCTING STATION ARRAYS
+======================================================================
+Raw X shape: (8760, 6, 14)
+Raw Y shape: (8760, 6, 1)
+
+======================================================================
+CREATING MULTI-HORIZON TEMPORAL SEQUENCES
+======================================================================
+X sequences: (8569, 168, 6, 14)
+Y sequences: (8569, 6, 24)
+Station-record sequences: 8569
+
+Multi-horizon target structure:
+  Input X : [samples, 168, 6, 14]
+  Target Y: [samples, 6, 24]
+  Forecast hours: 1 -> 24
+
+======================================================================
+CHRONOLOGICAL TRAIN / VAL / TEST SPLIT
+======================================================================
+Train samples: 5998
+Validation samples: 1094
+Test samples: 1095
+Purge gap (windows): 191
+Cross-split temporal overlap: PASS
+
+======================================================================
+FITTING SCALERS ON TRAINING DATA ONLY
+======================================================================
+================================================================================
+DySTCA REPRODUCIBILITY BASELINE EXPERIMENT
+Target: baseline_delhi_reproduced_2026-09-30
+Timestamp: 2026-10-05 07:51:36 UTC
+================================================================================
+Saved environment manifest to environment_manifest.json
+Configuration validation: PASS
+
+Executing Preprocessing Pipeline...
+
+======================================================================
+PREPARING MODEL DATA
+======================================================================
+
+======================================================================
+LOADING NEW DELHI DATASET
+======================================================================
+Dataset shape: (52560, 16)
+
+Columns:
+  - date_ist
+  - time_ist
+  - location
+  - lat
+  - lon
+  - temp_c
+  - humidity
+  - pressure_mb
+  - windspeed_kph
+  - condition_text
+  - description
+  - aqi_index
+  - pm2_5
+  - pm10
+  - co
+  - no2
+
+Required-column check: PASS
+Numeric-value validation: PASS
+
+======================================================================
+DATASET INSPECTION
+======================================================================
+Rows: 52560
+Number of stations: 6
+
+Stations:
+  0:  Anand Vihar    
+  1:  Connaught Place
+  2:  Dwarka         
+  3:  IGI Airport    
+  4:  Okhla Phase III
+  5:  Rohini         
+
+Rows per station:
+location
+Anand Vihar        8760
+Connaught Place    8760
+Dwarka             8760
+IGI Airport        8760
+Okhla Phase III    8760
+Rohini             8760
+dtype: int64
+
+Missing values:
+Series([], dtype: int64)
+
+Station-coordinate consistency: PASS
+Duplicate station/timestamp rows: 0
+
+Wind information check: PASS
+Using wind speed: windspeed_kph
+Wind direction: not available
+Graph formulation: Sij = Vi * exp(-k * dij)
+
+======================================================================
+STATION MAPPING
+======================================================================
+00 |  Anand Vihar     | lat=28.646900 | lon=77.316000
+01 |  Connaught Place | lat=28.630400 | lon=77.217700
+02 |  Dwarka          | lat=28.588200 | lon=77.049400
+03 |  IGI Airport     | lat=28.556200 | lon=77.100000
+04 |  Okhla Phase III | lat=28.527300 | lon=77.261800
+05 |  Rohini          | lat=28.704100 | lon=77.102500
+
+======================================================================
+VERIFYING HOURLY MULTI-STATION STRUCTURE
+======================================================================
+Unique timestamps: 8760
+Expected stations per hour: 6
+Incomplete timestamps: 0
+Hourly gaps: 0
+Hourly structure: PASS
+
+======================================================================
+CONSTRUCTING STATION ARRAYS
+======================================================================
+Raw X shape: (8760, 6, 14)
+Raw Y shape: (8760, 6, 1)
+
+======================================================================
+CREATING MULTI-HORIZON TEMPORAL SEQUENCES
+======================================================================
+X sequences: (8569, 168, 6, 14)
+Y sequences: (8569, 6, 24)
+Station-record sequences: 8569
+
+Multi-horizon target structure:
+  Input X : [samples, 168, 6, 14]
+  Target Y: [samples, 6, 24]
+  Forecast hours: 1 -> 24
+
+======================================================================
+CHRONOLOGICAL TRAIN / VAL / TEST SPLIT
+======================================================================
+Train samples: 5998
+Validation samples: 1094
+Test samples: 1095
+Purge gap (windows): 191
+Cross-split temporal overlap: PASS
+
+======================================================================
+FITTING SCALERS ON TRAINING DATA ONLY
+======================================================================
+Feature scaler: fitted
+Target scaler: fitted
+
+======================================================================
+FINAL PREPROCESSING VALIDATION
+======================================================================
+TRAIN: PASS | X=(5998, 168, 6, 14) | Y=(5998, 6, 24) | records=5998
+VALIDATION: PASS | X=(1094, 168, 6, 14) | Y=(1094, 6, 24) | records=1094
+TEST: PASS | X=(1095, 168, 6, 14) | Y=(1095, 6, 24) | records=1095
+
+======================================================================
+PREPROCESSING COMPLETE
+======================================================================
+Stations: 6
+Features: 14
+Feature columns: ['pm2_5', 'pm10', 'co', 'no2', 'temp_c', 'humidity', 'pressure_mb', 'windspeed_kph', 'hour_sin', 'hour_cos', 'day_sin', 'day_cos', 'month_sin', 'month_cos']
+Input sequence length: 168
+Prediction horizon: 24
+Target: pm2_5
+
+TRAIN:
+  X: torch.Size([5998, 168, 6, 14])
+  Y: torch.Size([5998, 6, 24])
+
+VALIDATION:
+  X: torch.Size([1094, 168, 6, 14])
+  Y: torch.Size([1094, 6, 24])
+
+TEST:
+  X: torch.Size([1095, 168, 6, 14])
+  Y: torch.Size([1095, 6, 24])
+
+FORECAST STRUCTURE:
+  Input: previous 24 hourly observations
+  Output: next 24 hourly PM2.5 values
+  12-hour evaluation: forecast hours 1-12
+  24-hour evaluation: forecast hours 1-24
+
+Feature scaler fitted on TRAIN only.
+Target scaler fitted on TRAIN only.
+Active Device: cpu
+Verified Model Trainable Parameters: 262,336
+Saved configuration manifest to config_manifest.json
+
+================================================================================
+STAGE 1: WARM-UP (5 EPOCHS)
+================================================================================
+Warm-up Epoch [1/5] (8.1s) | Train Loss: 0.146580 | Val Loss: 0.050729 | Val MAE: 15.64 | Val RMSE: 21.39 | Val R2: 0.5066
+Warm-up Epoch [2/5] (8.3s) | Train Loss: 0.146390 | Val Loss: 0.050735 | Val MAE: 15.64 | Val RMSE: 21.39 | Val R2: 0.5065
+Warm-up Epoch [3/5] (8.3s) | Train Loss: 0.146222 | Val Loss: 0.050725 | Val MAE: 15.64 | Val RMSE: 21.39 | Val R2: 0.5065
+Warm-up Epoch [4/5] (8.4s) | Train Loss: 0.145426 | Val Loss: 0.050699 | Val MAE: 15.64 | Val RMSE: 21.39 | Val R2: 0.5065
+Warm-up Epoch [5/5] (8.4s) | Train Loss: 0.144338 | Val Loss: 0.050635 | Val MAE: 15.63 | Val RMSE: 21.39 | Val R2: 0.5066
+
+================================================================================
+STAGE 2: LOCKING FROZEN GRAPH PARAMETERS
+Active k: 0.643033
+Active threshold: 0.034761
+================================================================================
+
+================================================================================
+STAGE 3: FINAL TRAINING (MAX 100 EPOCHS, PATIENCE 25)
+================================================================================
+Epoch [0001/100] (8.4s) | Train: 0.142746 | Val: 0.050543 | h+1 MAE: 5.08 | h+1 R2: 0.9353 | 24h MAE: 15.63 | RMSE: 21.39 | R2: 0.5068 | Acc+/-20%: 54.71% | LR: 0.000297 [*] [NEW BEST]
+Epoch [0002/100] (8.4s) | Train: 0.141107 | Val: 0.050620 | h+1 MAE: 5.08 | h+1 R2: 0.9350 | 24h MAE: 15.64 | RMSE: 21.40 | R2: 0.5064 | Acc+/-20%: 54.69% | LR: 0.000287 [No improve: 1/25]
+================================================================================
+DySTCA REPRODUCIBILITY BASELINE EXPERIMENT
+Target: baseline_delhi_reproduced_2026-09-30
+Timestamp: 2026-10-05 07:53:06 UTC
+================================================================================
+Saved environment manifest to environment_manifest.json
+Configuration validation: PASS
+
+Executing Preprocessing Pipeline...
+
+======================================================================
+PREPARING MODEL DATA
+======================================================================
+
+======================================================================
+LOADING NEW DELHI DATASET
+======================================================================
+Dataset shape: (52560, 16)
+
+Columns:
+  - date_ist
+  - time_ist
+  - location
+  - lat
+  - lon
+  - temp_c
+  - humidity
+  - pressure_mb
+  - windspeed_kph
+  - condition_text
+  - description
+  - aqi_index
+  - pm2_5
+  - pm10
+  - co
+  - no2
+
+Required-column check: PASS
+Numeric-value validation: PASS
+
+======================================================================
+DATASET INSPECTION
+======================================================================
+Rows: 52560
+Number of stations: 6
+
+Stations:
+  0:  Anand Vihar    
+  1:  Connaught Place
+  2:  Dwarka         
+  3:  IGI Airport    
+  4:  Okhla Phase III
+  5:  Rohini         
+
+Rows per station:
+location
+Anand Vihar        8760
+Connaught Place    8760
+Dwarka             8760
+IGI Airport        8760
+Okhla Phase III    8760
+Rohini             8760
+dtype: int64
+
+Missing values:
+Series([], dtype: int64)
+
+Station-coordinate consistency: PASS
+Duplicate station/timestamp rows: 0
+
+Wind information check: PASS
+Using wind speed: windspeed_kph
+Wind direction: not available
+Graph formulation: Sij = Vi * exp(-k * dij)
+
+======================================================================
+STATION MAPPING
+======================================================================
+00 |  Anand Vihar     | lat=28.646900 | lon=77.316000
+01 |  Connaught Place | lat=28.630400 | lon=77.217700
+02 |  Dwarka          | lat=28.588200 | lon=77.049400
+03 |  IGI Airport     | lat=28.556200 | lon=77.100000
+04 |  Okhla Phase III | lat=28.527300 | lon=77.261800
+05 |  Rohini          | lat=28.704100 | lon=77.102500
+
+======================================================================
+VERIFYING HOURLY MULTI-STATION STRUCTURE
+======================================================================
+Unique timestamps: 8760
+Expected stations per hour: 6
+Incomplete timestamps: 0
+Hourly gaps: 0
+Hourly structure: PASS
+
+======================================================================
+CONSTRUCTING STATION ARRAYS
+======================================================================
+Raw X shape: (8760, 6, 14)
+Raw Y shape: (8760, 6, 1)
+
+======================================================================
+CREATING MULTI-HORIZON TEMPORAL SEQUENCES
+======================================================================
+X sequences: (8569, 168, 6, 14)
+Y sequences: (8569, 6, 24)
+Station-record sequences: 8569
+
+Multi-horizon target structure:
+  Input X : [samples, 168, 6, 14]
+  Target Y: [samples, 6, 24]
+  Forecast hours: 1 -> 24
+
+======================================================================
+CHRONOLOGICAL TRAIN / VAL / TEST SPLIT
+======================================================================
+Train samples: 5998
+Validation samples: 1094
+Test samples: 1095
+Purge gap (windows): 191
+Cross-split temporal overlap: PASS
+
+======================================================================
+FITTING SCALERS ON TRAINING DATA ONLY
+======================================================================
+Feature scaler: fitted
+Target scaler: fitted
+
+======================================================================
+FINAL PREPROCESSING VALIDATION
+======================================================================
+TRAIN: PASS | X=(5998, 168, 6, 14) | Y=(5998, 6, 24) | records=5998
+VALIDATION: PASS | X=(1094, 168, 6, 14) | Y=(1094, 6, 24) | records=1094
+TEST: PASS | X=(1095, 168, 6, 14) | Y=(1095, 6, 24) | records=1095
+
+======================================================================
+PREPROCESSING COMPLETE
+======================================================================
+Stations: 6
+Features: 14
+Feature columns: ['pm2_5', 'pm10', 'co', 'no2', 'temp_c', 'humidity', 'pressure_mb', 'windspeed_kph', 'hour_sin', 'hour_cos', 'day_sin', 'day_cos', 'month_sin', 'month_cos']
+Input sequence length: 168
+Prediction horizon: 24
+Target: pm2_5
+
+TRAIN:
+  X: torch.Size([5998, 168, 6, 14])
+  Y: torch.Size([5998, 6, 24])
+
+VALIDATION:
+  X: torch.Size([1094, 168, 6, 14])
+  Y: torch.Size([1094, 6, 24])
+
+TEST:
+  X: torch.Size([1095, 168, 6, 14])
+  Y: torch.Size([1095, 6, 24])
+
+FORECAST STRUCTURE:
+  Input: previous 24 hourly observations
+  Output: next 24 hourly PM2.5 values
+  12-hour evaluation: forecast hours 1-12
+  24-hour evaluation: forecast hours 1-24
+
+Feature scaler fitted on TRAIN only.
+Target scaler fitted on TRAIN only.
+Active Device: cpu
+Verified Model Trainable Parameters: 262,336
+Saved configuration manifest to config_manifest.json
+
+================================================================================
+RESUMING EXPERIMENT: Found existing progress (2 epochs recorded)
+================================================================================
+Resuming from Epoch 3 (Current best R2 = 0.5068 at Epoch 1)
+Epoch [0003/100] (8.3s) | Train: 0.141322 | Val: 0.050439 | h+1 MAE: 5.06 | h+1 R2: 0.9354 | 24h MAE: 15.62 | RMSE: 21.38 | R2: 0.5071 | Acc+/-20%: 54.74% | LR: 0.000271 [*] [NEW BEST]
+Epoch [0004/100] (8.2s) | Train: 0.139494 | Val: 0.050561 | h+1 MAE: 5.08 | h+1 R2: 0.9349 | 24h MAE: 15.63 | RMSE: 21.39 | R2: 0.5065 | Acc+/-20%: 54.69% | LR: 0.000251 [No improve: 1/25]
+Epoch [0005/100] (8.6s) | Train: 0.137955 | Val: 0.050656 | h+1 MAE: 5.12 | h+1 R2: 0.9336 | 24h MAE: 15.65 | RMSE: 21.40 | R2: 0.5060 | Acc+/-20%: 54.66% | LR: 0.000225 [No improve: 2/25]
+Epoch [0006/100] (8.4s) | Train: 0.136290 | Val: 0.050759 | h+1 MAE: 5.19 | h+1 R2: 0.9323 | 24h MAE: 15.66 | RMSE: 21.41 | R2: 0.5056 | Acc+/-20%: 54.63% | LR: 0.000197 [No improve: 3/25]
+Epoch [0007/100] (8.6s) | Train: 0.135183 | Val: 0.050537 | h+1 MAE: 5.19 | h+1 R2: 0.9326 | 24h MAE: 15.64 | RMSE: 21.40 | R2: 0.5062 | Acc+/-20%: 54.70% | LR: 0.000166 [No improve: 4/25]
+Epoch [0008/100] (8.5s) | Train: 0.133860 | Val: 0.050762 | h+1 MAE: 5.28 | h+1 R2: 0.9307 | 24h MAE: 15.66 | RMSE: 21.42 | R2: 0.5055 | Acc+/-20%: 54.66% | LR: 0.000135 [No improve: 5/25]
+Epoch [0009/100] (8.6s) | Train: 0.133109 | Val: 0.050628 | h+1 MAE: 5.30 | h+1 R2: 0.9308 | 24h MAE: 15.66 | RMSE: 21.41 | R2: 0.5058 | Acc+/-20%: 54.67% | LR: 0.000104 [No improve: 6/25]
+================================================================================
+DySTCA REPRODUCIBILITY BASELINE EXPERIMENT
+Target: baseline_delhi_reproduced_2026-09-30
+Timestamp: 2026-10-05 07:54:57 UTC
+================================================================================
+Saved environment manifest to environment_manifest.json
+Configuration validation: PASS
+
+Executing Preprocessing Pipeline...
+
+======================================================================
+PREPARING MODEL DATA
+======================================================================
+
+======================================================================
+LOADING NEW DELHI DATASET
+======================================================================
+Dataset shape: (52560, 16)
+
+Columns:
+  - date_ist
+  - time_ist
+  - location
+  - lat
+  - lon
+  - temp_c
+  - humidity
+  - pressure_mb
+  - windspeed_kph
+  - condition_text
+  - description
+  - aqi_index
+  - pm2_5
+  - pm10
+  - co
+  - no2
+
+Required-column check: PASS
+Numeric-value validation: PASS
+
+======================================================================
+DATASET INSPECTION
+======================================================================
+Rows: 52560
+Number of stations: 6
+
+Stations:
+  0:  Anand Vihar    
+  1:  Connaught Place
+  2:  Dwarka         
+  3:  IGI Airport    
+  4:  Okhla Phase III
+  5:  Rohini         
+
+Rows per station:
+location
+Anand Vihar        8760
+Connaught Place    8760
+Dwarka             8760
+IGI Airport        8760
+Okhla Phase III    8760
+Rohini             8760
+dtype: int64
+
+Missing values:
+Series([], dtype: int64)
+
+Station-coordinate consistency: PASS
+Duplicate station/timestamp rows: 0
+
+Wind information check: PASS
+Using wind speed: windspeed_kph
+Wind direction: not available
+Graph formulation: Sij = Vi * exp(-k * dij)
+
+======================================================================
+STATION MAPPING
+======================================================================
+00 |  Anand Vihar     | lat=28.646900 | lon=77.316000
+01 |  Connaught Place | lat=28.630400 | lon=77.217700
+02 |  Dwarka          | lat=28.588200 | lon=77.049400
+03 |  IGI Airport     | lat=28.556200 | lon=77.100000
+04 |  Okhla Phase III | lat=28.527300 | lon=77.261800
+05 |  Rohini          | lat=28.704100 | lon=77.102500
+
+======================================================================
+VERIFYING HOURLY MULTI-STATION STRUCTURE
+======================================================================
+Unique timestamps: 8760
+Expected stations per hour: 6
+Incomplete timestamps: 0
+Hourly gaps: 0
+Hourly structure: PASS
+
+======================================================================
+CONSTRUCTING STATION ARRAYS
+======================================================================
+Raw X shape: (8760, 6, 14)
+Raw Y shape: (8760, 6, 1)
+
+======================================================================
+CREATING MULTI-HORIZON TEMPORAL SEQUENCES
+======================================================================
+X sequences: (8569, 168, 6, 14)
+Y sequences: (8569, 6, 24)
+Station-record sequences: 8569
+
+Multi-horizon target structure:
+  Input X : [samples, 168, 6, 14]
+  Target Y: [samples, 6, 24]
+  Forecast hours: 1 -> 24
+
+======================================================================
+CHRONOLOGICAL TRAIN / VAL / TEST SPLIT
+======================================================================
+Train samples: 5998
+Validation samples: 1094
+Test samples: 1095
+Purge gap (windows): 191
+Cross-split temporal overlap: PASS
+
+======================================================================
+FITTING SCALERS ON TRAINING DATA ONLY
+======================================================================
+Feature scaler: fitted
+Target scaler: fitted
+
+======================================================================
+FINAL PREPROCESSING VALIDATION
+======================================================================
+TRAIN: PASS | X=(5998, 168, 6, 14) | Y=(5998, 6, 24) | records=5998
+VALIDATION: PASS | X=(1094, 168, 6, 14) | Y=(1094, 6, 24) | records=1094
+TEST: PASS | X=(1095, 168, 6, 14) | Y=(1095, 6, 24) | records=1095
+
+======================================================================
+PREPROCESSING COMPLETE
+======================================================================
+Stations: 6
+Features: 14
+Feature columns: ['pm2_5', 'pm10', 'co', 'no2', 'temp_c', 'humidity', 'pressure_mb', 'windspeed_kph', 'hour_sin', 'hour_cos', 'day_sin', 'day_cos', 'month_sin', 'month_cos']
+Input sequence length: 168
+Prediction horizon: 24
+Target: pm2_5
+
+TRAIN:
+  X: torch.Size([5998, 168, 6, 14])
+  Y: torch.Size([5998, 6, 24])
+
+VALIDATION:
+  X: torch.Size([1094, 168, 6, 14])
+  Y: torch.Size([1094, 6, 24])
+
+TEST:
+  X: torch.Size([1095, 168, 6, 14])
+  Y: torch.Size([1095, 6, 24])
+
+FORECAST STRUCTURE:
+  Input: previous 24 hourly observations
+  Output: next 24 hourly PM2.5 values
+  12-hour evaluation: forecast hours 1-12
+  24-hour evaluation: forecast hours 1-24
+
+Feature scaler fitted on TRAIN only.
+Target scaler fitted on TRAIN only.
+Active Device: cpu
+Verified Model Trainable Parameters: 262,336
+Saved configuration manifest to config_manifest.json
+
+================================================================================
+RESUMING EXPERIMENT: Found existing progress (9 epochs recorded)
+================================================================================
+Resuming from Epoch 10 (Current best R2 = 0.5071 at Epoch 3)
+Epoch [0010/100] (1.7s) | Train: 0.139822 | Val: 0.006283 | h+1 MAE: 2.48 | h+1 R2: 0.8893 | 24h MAE: 5.52 | RMSE: 6.66 | R2: 0.5638 | Acc+/-20%: 88.67% | LR: 0.000076 [*] [NEW BEST]
+Epoch [0011/100] (1.5s) | Train: 0.139181 | Val: 0.006299 | h+1 MAE: 2.48 | h+1 R2: 0.8882 | 24h MAE: 5.52 | RMSE: 6.67 | R2: 0.5628 | Acc+/-20%: 88.65% | LR: 0.000050 [No improve: 1/25]
+Epoch [0012/100] (1.8s) | Train: 0.138738 | Val: 0.006307 | h+1 MAE: 2.49 | h+1 R2: 0.8881 | 24h MAE: 5.53 | RMSE: 6.67 | R2: 0.5625 | Acc+/-20%: 88.63% | LR: 0.000030 [No improve: 2/25]
+Epoch [0013/100] (1.6s) | Train: 0.138442 | Val: 0.006305 | h+1 MAE: 2.49 | h+1 R2: 0.8884 | 24h MAE: 5.53 | RMSE: 6.67 | R2: 0.5626 | Acc+/-20%: 88.61% | LR: 0.000014 [No improve: 3/25]
+Epoch [0014/100] (1.5s) | Train: 0.138431 | Val: 0.006304 | h+1 MAE: 2.49 | h+1 R2: 0.8885 | 24h MAE: 5.53 | RMSE: 6.67 | R2: 0.5626 | Acc+/-20%: 88.61% | LR: 0.000004 [No improve: 4/25]
+Epoch [0015/100] (1.6s) | Train: 0.138184 | Val: 0.006304 | h+1 MAE: 2.49 | h+1 R2: 0.8885 | 24h MAE: 5.53 | RMSE: 6.67 | R2: 0.5626 | Acc+/-20%: 88.61% | LR: 0.000300 [No improve: 5/25]
+Epoch [0016/100] (1.6s) | Train: 0.137636 | Val: 0.006319 | h+1 MAE: 2.50 | h+1 R2: 0.8885 | 24h MAE: 5.54 | RMSE: 6.68 | R2: 0.5613 | Acc+/-20%: 88.32% | LR: 0.000299 [No improve: 6/25]
+Epoch [0017/100] (1.6s) | Train: 0.135582 | Val: 0.006332 | h+1 MAE: 2.52 | h+1 R2: 0.8895 | 24h MAE: 5.55 | RMSE: 6.68 | R2: 0.5611 | Acc+/-20%: 88.50% | LR: 0.000297 [No improve: 7/25]
+Epoch [0018/100] (1.7s) | Train: 0.133939 | Val: 0.006345 | h+1 MAE: 2.51 | h+1 R2: 0.8872 | 24h MAE: 5.55 | RMSE: 6.70 | R2: 0.5590 | Acc+/-20%: 88.48% | LR: 0.000293 [No improve: 8/25]
+Epoch [0019/100] (1.9s) | Train: 0.132228 | Val: 0.006303 | h+1 MAE: 2.52 | h+1 R2: 0.8889 | 24h MAE: 5.56 | RMSE: 6.69 | R2: 0.5600 | Acc+/-20%: 88.67% | LR: 0.000287 [No improve: 9/25]
+Epoch [0020/100] (1.8s) | Train: 0.130516 | Val: 0.006524 | h+1 MAE: 2.69 | h+1 R2: 0.8736 | 24h MAE: 5.60 | RMSE: 6.76 | R2: 0.5510 | Acc+/-20%: 87.98% | LR: 0.000280 [No improve: 10/25]
+Epoch [0021/100] (1.8s) | Train: 0.129872 | Val: 0.006497 | h+1 MAE: 2.73 | h+1 R2: 0.8782 | 24h MAE: 5.61 | RMSE: 6.74 | R2: 0.5532 | Acc+/-20%: 88.37% | LR: 0.000271 [No improve: 11/25]
+Epoch [0022/100] (1.8s) | Train: 0.128215 | Val: 0.006535 | h+1 MAE: 2.77 | h+1 R2: 0.8720 | 24h MAE: 5.62 | RMSE: 6.77 | R2: 0.5499 | Acc+/-20%: 88.00% | LR: 0.000262 [No improve: 12/25]
+Epoch [0023/100] (1.8s) | Train: 0.127655 | Val: 0.006440 | h+1 MAE: 2.79 | h+1 R2: 0.8771 | 24h MAE: 5.61 | RMSE: 6.73 | R2: 0.5545 | Acc+/-20%: 88.61% | LR: 0.000251 [No improve: 13/25]
+Epoch [0024/100] (1.8s) | Train: 0.127135 | Val: 0.006462 | h+1 MAE: 2.83 | h+1 R2: 0.8734 | 24h MAE: 5.62 | RMSE: 6.75 | R2: 0.5525 | Acc+/-20%: 88.41% | LR: 0.000238 [No improve: 14/25]
+Epoch [0025/100] (2.0s) | Train: 0.126230 | Val: 0.006625 | h+1 MAE: 2.96 | h+1 R2: 0.8626 | 24h MAE: 5.65 | RMSE: 6.80 | R2: 0.5461 | Acc+/-20%: 87.87% | LR: 0.000225 [No improve: 15/25]
+Epoch [0026/100] (1.9s) | Train: 0.125882 | Val: 0.006736 | h+1 MAE: 3.07 | h+1 R2: 0.8545 | 24h MAE: 5.67 | RMSE: 6.82 | R2: 0.5424 | Acc+/-20%: 87.61% | LR: 0.000211 [No improve: 16/25]
+Epoch [0027/100] (1.9s) | Train: 0.125577 | Val: 0.006614 | h+1 MAE: 3.02 | h+1 R2: 0.8608 | 24h MAE: 5.66 | RMSE: 6.79 | R2: 0.5471 | Acc+/-20%: 87.89% | LR: 0.000197 [No improve: 17/25]
+Epoch [0028/100] (1.9s) | Train: 0.125433 | Val: 0.006687 | h+1 MAE: 3.07 | h+1 R2: 0.8545 | 24h MAE: 5.67 | RMSE: 6.81 | R2: 0.5437 | Acc+/-20%: 87.67% | LR: 0.000182 [No improve: 18/25]
+Epoch [0029/100] (1.8s) | Train: 0.125186 | Val: 0.006809 | h+1 MAE: 3.15 | h+1 R2: 0.8467 | 24h MAE: 5.69 | RMSE: 6.84 | R2: 0.5395 | Acc+/-20%: 87.46% | LR: 0.000166 [No improve: 19/25]
+Epoch [0030/100] (1.8s) | Train: 0.125062 | Val: 0.006830 | h+1 MAE: 3.17 | h+1 R2: 0.8453 | 24h MAE: 5.70 | RMSE: 6.85 | R2: 0.5390 | Acc+/-20%: 87.37% | LR: 0.000150 [No improve: 20/25]
+Epoch [0031/100] (1.9s) | Train: 0.124869 | Val: 0.006837 | h+1 MAE: 3.19 | h+1 R2: 0.8439 | 24h MAE: 5.70 | RMSE: 6.85 | R2: 0.5387 | Acc+/-20%: 87.37% | LR: 0.000135 [No improve: 21/25]
+Epoch [0032/100] (1.9s) | Train: 0.124845 | Val: 0.006836 | h+1 MAE: 3.20 | h+1 R2: 0.8431 | 24h MAE: 5.70 | RMSE: 6.85 | R2: 0.5386 | Acc+/-20%: 87.43% | LR: 0.000119 [No improve: 22/25]
+Epoch [0033/100] (1.8s) | Train: 0.124708 | Val: 0.006828 | h+1 MAE: 3.20 | h+1 R2: 0.8432 | 24h MAE: 5.70 | RMSE: 6.85 | R2: 0.5389 | Acc+/-20%: 87.41% | LR: 0.000104 [No improve: 23/25]
+Epoch [0034/100] (1.8s) | Train: 0.124687 | Val: 0.006807 | h+1 MAE: 3.19 | h+1 R2: 0.8442 | 24h MAE: 5.70 | RMSE: 6.84 | R2: 0.5397 | Acc+/-20%: 87.48% | LR: 0.000090 [No improve: 24/25]
+Epoch [0035/100] (1.8s) | Train: 0.124614 | Val: 0.006802 | h+1 MAE: 3.20 | h+1 R2: 0.8439 | 24h MAE: 5.69 | RMSE: 6.84 | R2: 0.5398 | Acc+/-20%: 87.50% | LR: 0.000076 [No improve: 25/25]
+
+EARLY STOPPING triggered at Epoch 35. Best validation epoch: 10 (R2 = 0.563818)
+Saved checkpoint_final.pt
+
+================================================================================
+EVALUATING BEST CHECKPOINT ON VALIDATION AND TEST SPLITS
+================================================================================
+Saved predictions_val.npz
+Saved predictions_test.npz
+Saved metrics_summary.json
+Saved sha256_manifest.json
+
+================================================================================
+BASELINE REPRODUCTION COMPLETE
+================================================================================

@@ -1,0 +1,14 @@
+{
+    "parameters": 262336,
+    "model_size_mb": 1.00091552734375,
+    "forward_latency_ms": {
+        "mean": 426.10740661621094,
+        "std": 11.658079041749728
+    },
+    "backward_latency_ms": {
+        "mean": 803.6641120910645,
+        "std": 26.74311294934273
+    },
+    "gpu_memory_mb": null,
+    "device": "cpu"
+}

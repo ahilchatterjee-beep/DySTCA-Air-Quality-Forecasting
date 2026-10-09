@@ -1,0 +1,22 @@
+{
+    "random_seed": 42,
+    "lookback_L": 168,
+    "horizon_H": 24,
+    "num_stations": 6,
+    "input_features": 14,
+    "embedding_dim": 64,
+    "trainable_parameters": 262336,
+    "decay_constant_k": 0.6430325304733049,
+    "similarity_threshold_tau": 0.034760647670440264,
+    "loss_function": "HorizonWeightedHuberLoss(delta=1.0, decay=0.80)",
+    "optimizer": "AdamW(lr=0.0003, weight_decay=0.01)",
+    "lr_scheduler": "CosineAnnealingWarmRestarts(T_0=15, T_mult=2, eta_min=1e-6)",
+    "early_stopping_patience": 25,
+    "batch_size": 4,
+    "split_sizes": {
+        "train": 32,
+        "val": 32,
+        "test": 32,
+        "purge_gap": 191
+    }
+}

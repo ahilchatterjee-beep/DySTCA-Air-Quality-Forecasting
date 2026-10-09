@@ -1,0 +1,38 @@
+{
+    "checkpoint_best.pt": {
+        "size_bytes": 1084325,
+        "sha256": "08e45798a69192e0f945bd056c44380753a980c22f1754e79f56e30779b2993d"
+    },
+    "checkpoint_final.pt": {
+        "size_bytes": 1084180,
+        "sha256": "e757dbb26e66321e4bf9c4b25392832e8d84912c7af75646f85bdad7049ead2a"
+    },
+    "config_manifest.json": {
+        "size_bytes": 678,
+        "sha256": "3333f9712bdfeb3101c908b653a652e2202fa554e8fa53e5b6d5565b0dc30d95"
+    },
+    "environment_manifest.json": {
+        "size_bytes": 409,
+        "sha256": "be294b5b6f6bb5994eeb5d495b99dd55a9fc3b6cbba4418193abb6098025b4e7"
+    },
+    "metrics_summary.json": {
+        "size_bytes": 21899,
+        "sha256": "a36ad7e29a31c085c9c48c7f2a8327afa9b1cd2f790a292fac76f2b3248bcf3a"
+    },
+    "predictions_test.npz": {
+        "size_bytes": 16560,
+        "sha256": "d734ada9a7977c4bc7b3f7dba11dbfa19f0ef30879ce30cb8ee326fd1734f394"
+    },
+    "predictions_val.npz": {
+        "size_bytes": 16753,
+        "sha256": "2182ad0584f751d2951908345bed2007bec485a1cff694145a4c757120dc2b43"
+    },
+    "training_history.json": {
+        "size_bytes": 23105,
+        "sha256": "6a3ba73940e67bee469f219108f110f1db5e99a92b8d987382f02f7c78d3afc4"
+    },
+    "training_log.txt": {
+        "size_bytes": 40491,
+        "sha256": "c2d14a520402f27afd1684df35574fcff2cd63a97bcb187a2724c7c6961547d1"
+    }
+}
