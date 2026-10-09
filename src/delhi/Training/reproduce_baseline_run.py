@@ -115,9 +115,9 @@ from config import (
 print("\nExecuting Preprocessing Pipeline...")
 data = prepare_model_data()
 
-X_train, Y_train = data["X_train"][:32], data["Y_train"][:32]
-X_val, Y_val     = data["X_val"][:32], data["Y_val"][:32]
-X_test, Y_test   = data["X_test"][:32], data["Y_test"][:32]
+X_train, Y_train = data["X_train"], data["Y_train"]
+X_val, Y_val     = data["X_val"], data["Y_val"]
+X_test, Y_test   = data["X_test"], data["Y_test"]
 sr_train         = data["station_records_train"]
 sr_val           = data["station_records_val"]
 sr_test          = data["station_records_test"]
@@ -183,7 +183,7 @@ model = SpatioTemporalModel(
     decay_constant=GRAPH_DECAY_CONSTANT,
     similarity_threshold=GRAPH_SIMILARITY_THRESHOLD,
     num_heads=GAT_HEADS,
-    use_hyper_heuristic=False
+    use_hyper_heuristic=True
 ).to(DEVICE)
 
 param_count = sum(p.numel() for p in model.parameters() if p.requires_grad)
